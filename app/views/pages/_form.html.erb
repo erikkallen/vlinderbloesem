@@ -1,0 +1,45 @@
+<%= form_for(@page, :multipart => true) do |f| %>
+    <% if @page.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+        <ul>
+        <% @page.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+	
+	<div class="vlinder_buttons">
+		<div class="vlinder_button_text_bar" style="padding-left: 0px;width: 665px;">
+			<div style="float: left;">
+				<%= f.text_field :button_text, :class =>"input_box" %>Tonen op homepage:
+				<%= f.check_box :on_homepage %>&nbsp;&nbsp;<%= link_to 'Toon pagina', @page %>
+			</div>
+			<div class="close_category">
+				<%= link_to image_tag('vlinder_back.jpg'), pages_path, :confirm => "Weet je zeker dat je niet wilt opslaan?" %>
+			</div>
+		</div>
+		<div class="content_container">
+			<div class="category_image_container">
+				<%= f.file_field :foto, :class =>"input_box" %><br />
+				<%= image_tag @page.image %>
+			</div>
+			<div id="category_text">
+				<%#= f.text_area :content, :style => "width: 370px;height: 300px;", :class => "mceEditor" %>
+				<%= f.text_area :content, :rows => 40, :cols => 120,:style => "width: 370px;height: 300px;",:id=>:editor %>
+
+				<script type="text/javascript">
+				  $(function() {
+				    $('textarea').tinymce({
+				      theme: 'advanced'
+				    });
+				  });
+				</script>
+				<div style="width: 100%; text-align:center;margin-top:5px;"><%= f.submit 'Opslaan' %></div>
+			</div>
+		</div>
+	</div>
+	<br style="clear: both;" />
+<% end %>

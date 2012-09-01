@@ -1,0 +1,27 @@
+<div id="vlinder_categories_show">
+	<div class="vlinder_buttons_show">
+		<div class="vlinder_button_text_bar">
+			<div style="float: left;">
+				<div style="width: 214px;text-align:center;">
+					<%= @page.button_text%>
+				<% if admin? %>
+					<%= link_to image_tag('edit.png'), edit_page_path(@page) %>
+				<% end %>
+				</div>
+				
+			</div>
+			<div class="close_category">
+				<%= link_to image_tag('vlinder_back.jpg'), pages_path %>
+			</div>
+		</div>
+		<div class="content_container">
+			<div class="category_image_container">
+				<%= image_tag @page.foto.url(:medium) || @page.image %>
+			</div>
+		</div>
+		<div id="category_text">
+			<%= raw @page.content %>
+		</div>
+	</div>
+</div>
+<br style="clear: both;" />

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vlinderbloesem</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <meta name="verify-v1" content="TBDSngsSiN0yIlkZem+R1x0plNSKyLOstApdIcTUKns=" />
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<% if admin? %>
+		<p>
+		<%= link_to 'Uitloggen', destroy_user_session_path, :confirm => 'Are you sure?', :method => :delete %>
+		</p>
+	<% end %>
+	<div id="container">
+		<div id="header">
+			<div id="header_logo">
+				<%= image_tag('vlinder_logo.png') %>
+			</div>
+			<h1 id="header_text">
+				&ldquo;Levenskrachten die erop gericht zijn om in je eigen kracht<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;te komen en daaraan vorm geven&rdquo;
+			</h1>
+			<div id="header_logo_text">
+				<%= image_tag('vlinder_logo_text.png') %>
+			</div>
+		</div>
+		<div id="body">
+			<%= yield %>
+		</div>
+		<br style="clear: both;" />
+		<div id="footer">
+			<%= link_to 'Home', pages_url ,:class => 'footer_link' %> | 
+			<% Page.all.each do |page| %>
+				<%= link_to page.button_text, page, :class => 'footer_link' %> |
+			<% end %>
+			<%= link_to 'Foto Album', fotos_url, :class => 'footer_link' %> | 
+			<%= link_to 'Contact', new_contact_url, :class => 'footer_link' %>
+		</div>
+	</div>
+
+</body>
+</html>

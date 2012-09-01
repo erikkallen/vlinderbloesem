@@ -1,0 +1,32 @@
+<div id="vlinder_categories_show">
+	<div class="vlinder_buttons_show">
+		<div class="vlinder_button_text_bar" style="padding-left: 5px;width: 657px">
+			<div id="foto_title" style="float: left;">
+					<%=h @selected.try(:title) %>
+			</div>
+				<div class="close_category">
+					<%= link_to image_tag('vlinder_back.jpg'), pages_path %>
+				</div>
+		</div>
+		<div class="content_container" style="text-align:center;">
+			<% @fotos.each_slice(8).with_index.map do |slice,i| %>
+				<div class="img-row<%= ' first-row' if i == 0 %>">
+				<% slice.each do |foto| %>
+					<span>
+						<%#= binding.pry %>
+					<div class="img-thumb">
+						<%= link_to image_tag(foto.thumbnail_1),foto_path(foto), :remote => true %>
+		
+					</div>
+			  		</span>
+			  	<% end %>
+			  	</div>
+			<% end %>
+			</div>
+			<br style="clear:both;"/>
+			<div id="foto_frame">
+				<%= image_tag @selected.foto unless @selected.nil? %>
+			</div>
+	</div>
+</div>
+

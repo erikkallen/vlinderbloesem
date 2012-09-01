@@ -1,0 +1,2 @@
+$("#foto_frame").html('<%= image_tag @selected.foto unless @selected.nil? %>');
+$("#foto_title").html('<%=h @selected.try(:title) %>');

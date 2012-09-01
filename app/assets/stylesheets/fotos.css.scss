@@ -1,0 +1,35 @@
+// Place all the styles related to the fotos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bourbon";
+
+
+#foto_frame {
+	text-align: center;
+	img{
+		@include border-radius(10px);
+	}
+}
+
+.img-row span{
+	width:75px; 
+	//height: 70px;
+	//border: 1px solid green;
+	display: inline-block;
+	text-align:center;
+	vertical-align:top;
+
+}
+.img-row {
+	width: 657px;
+	text-align: justify;
+	//border: 1px solid green;
+	height: 70px;
+	margin-bottom: 10px;
+}
+.first-row img{
+	@include border-top-radius(0 !important);
+}
+.img-row img{
+	@include border-radius(5px);
+}
