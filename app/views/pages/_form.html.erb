@@ -24,7 +24,7 @@
 		<div class="content_container">
 			<div class="category_image_container">
 				<%= f.file_field :foto, :class =>"input_box" %><br />
-				<%= image_tag @page.image %>
+				<%= image_tag @page.try(:foto).try(:url,:medium) %>
 			</div>
 			<div id="category_text">
 				<%#= f.text_area :content, :style => "width: 370px;height: 300px;", :class => "mceEditor" %>

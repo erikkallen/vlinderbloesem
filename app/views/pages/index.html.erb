@@ -5,7 +5,7 @@
 			<%= link_to page.button_text, page, :class => 'vlinder_button_link' %>
 		</div>
 		<div>
-			<%= link_to image_tag("#{page.image}"), page %>
+			<%= link_to image_tag(page.try(:foto).try(:url, :medium)), page %>
 		</div>
 	</div>
 <% end %>
