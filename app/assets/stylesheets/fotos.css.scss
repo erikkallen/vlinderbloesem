@@ -33,3 +33,7 @@
 .img-row img{
 	@include border-radius(5px);
 }
+
+.vlinder_buttons img {
+	@include border-bottom-radius(10px);
+}
