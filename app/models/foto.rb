@@ -1,5 +1,5 @@
 class Foto
-	@@user = "edeuxk"
+	@@user = "vlinderbloesem"
 
  	def self.all
  		albums = Picasa.albums(:google_user => @@user).collect{|a|Hashit.new a unless a[:title]=="Profile Photos"}.compact
