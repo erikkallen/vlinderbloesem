@@ -25,7 +25,7 @@ class FotosController < ApplicationController
 
   private
     def get_fotos
-      @album = Foto.find_by_title "Webtest"
+      @album = Foto.find_by_title "website"
       @fotos = @album.photos
     end
 
