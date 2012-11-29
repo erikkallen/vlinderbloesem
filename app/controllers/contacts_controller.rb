@@ -45,6 +45,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
+        ContactMailer.contact_email(@contact).deliver
         format.html { redirect_to new_contact_path, notice: 'Uw bericht is met success verstuurd' }
         format.json { render json: @contact, status: :created, location: @contact }
       else
