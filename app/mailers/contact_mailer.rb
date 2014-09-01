@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "info@vlinderbloesem.nl"
+  default from: "deploy@do.vlinderbloesem.nl"
   
   def contact_email(user)
       @contact = user
