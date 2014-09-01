@@ -24,7 +24,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'devise'
+gem 'devise', '~> 2.2.0'
 
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
